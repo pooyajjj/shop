@@ -4,8 +4,8 @@ class Category(models.Model):
     name = models.CharField(max_length=225)
     desc = models.TextField(max_length=1100, blank=True, null=True)
 
-    def __str__(self) -> str:
-        return super().__str__()
+    def __str__(self):
+        return self.name
 
 class Product(models.Model):
     name = models.CharField(max_length=225)
@@ -22,4 +22,4 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
-        return super().__str__()
+        return f'{self.name}, {self.unique_code}'
