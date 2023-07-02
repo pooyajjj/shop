@@ -2,3 +2,5 @@ settings.py
 urls.py
 local_settings.py
 *.jpg
+*.png
+manage.py

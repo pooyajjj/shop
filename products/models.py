@@ -18,7 +18,8 @@ class Product(models.Model):
     slug = models.CharField(max_length=225, unique=True)
     avalibale = models.SmallIntegerField()
     have_unique_code = models.BooleanField(default=False)
-    unique_code = models.IntegerField()
+    unique_code = models.IntegerField(blank=True, null=True)
+    register_code = models.IntegerField(blank=True, null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
