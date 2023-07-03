@@ -23,4 +23,4 @@ def user_register(request):
         return JsonResponse(status=200, data=data, safe=False)
 
     except:
-        return JsonResponse(status=400, data={"inform":"user can not be created"})
+        return JsonResponse(status=400, data={"inform":"user can not be created, becase username or email or phone_number already used"})
