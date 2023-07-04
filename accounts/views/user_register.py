@@ -2,6 +2,7 @@ from django.http import JsonResponse
 from accounts.models import CustomUser
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
+from tasks import send_mail
 
 @csrf_exempt
 @require_http_methods(['POST'])
@@ -19,6 +20,10 @@ def user_register(request):
             "email":email,
             "phone_number":phone_number
         }
+        try:
+            send_mail(reciver=email, user=username)
+        except:
+            print("can't send email")
 
         return JsonResponse(status=200, data=data, safe=False)
 
