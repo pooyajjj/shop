@@ -2,7 +2,7 @@ from django.http import JsonResponse
 from accounts.models import CustomUser
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
-from tasks import send_mail
+from accounts.tasks import send_mail
 
 @csrf_exempt
 @require_http_methods(['POST'])
