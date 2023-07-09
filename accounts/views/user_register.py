@@ -20,8 +20,11 @@ def user_register(request):
             "email":email,
             "phone_number":phone_number
         }
+        message =f'hello dear {username} wellcome to our site i wish you have grate time'
+        subject = 'wellcome mail'
+
         try:
-            send_mail(reciver=email, user=username)
+            send_mail(reciver=email, message=message, subject=subject)
         except:
             print("can't send email")
 

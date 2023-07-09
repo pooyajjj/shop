@@ -1,10 +1,11 @@
+from typing import Any
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from .manager import CustomUserManager
 import random
 
 class OTP(models.Model):
-    code = models.SmallIntegerField(default=random.randrange(1000, 9999))
+    code = models.SmallIntegerField()
     date = models.DateTimeField(auto_now=True)
 
 
